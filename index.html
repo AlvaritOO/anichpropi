@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anichpro - Administración y Arriendo de Propiedades</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .hero-bg {
+            background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f8fafc" width="1200" height="800"/><g fill="%23e2e8f0"><rect x="100" y="200" width="200" height="300" rx="8"/><rect x="350" y="150" width="180" height="350" rx="8"/><rect x="580" y="180" width="160" height="320" rx="8"/><rect x="790" y="160" width="190" height="340" rx="8"/><rect x="1030" y="190" width="150" height="310" rx="8"/></g><g fill="%23cbd5e1"><rect x="120" y="220" width="20" height="20" rx="2"/><rect x="150" y="220" width="20" height="20" rx="2"/><rect x="120" y="250" width="20" height="20" rx="2"/><rect x="150" y="250" width="20" height="20" rx="2"/></g></svg>') center/cover;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .dashboard-mockup {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border: 2px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+        }
+        .dashboard-mockup::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            width: 12px;
+            height: 12px;
+            background: #ef4444;
+            border-radius: 50%;
+            box-shadow: 20px 0 #fbbf24, 40px 0 #22c55e;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+                        <i class="fas fa-building text-white text-lg"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-900">Anichpro</span>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#servicios" class="text-gray-600 hover:text-blue-600 transition-colors">Servicios</a>
+                    <a href="#planes" class="text-gray-600 hover:text-blue-600 transition-colors">Planes</a>
+                    <a href="#testimonios" class="text-gray-600 hover:text-blue-600 transition-colors">Testimonios</a>
+                    <a href="#contacto" class="text-gray-600 hover:text-blue-600 transition-colors">Contacto</a>
+                </nav>
+                <button class="md:hidden">
+                    <i class="fas fa-bars text-gray-600"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                Arrienda tu propiedad de forma<br>
+                <span class="text-blue-300">sencilla y 100% online</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                Desde publicar hasta firmar, todo desde tu dispositivo
+            </p>
+            <button class="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-50 transition-colors shadow-lg">
+                Publica tu propiedad
+            </button>
+        </div>
+    </section>
+
+    <!-- Beneficios Clave -->
+    <section id="servicios" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">¿Por qué elegir Anichpro?</h2>
+                <p class="text-xl text-gray-600">Simplificamos la gestión inmobiliaria para ti</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-8 rounded-xl bg-gray-50 card-hover">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-globe text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Publicamos en más de 10 portales inmobiliarios</h3>
+                    <p class="text-gray-600">Maximizamos la visibilidad de tu propiedad en todas las plataformas principales del mercado.</p>
+                </div>
+                <div class="text-center p-8 rounded-xl bg-gray-50 card-hover">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-cogs text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Gestionamos todo el proceso</h3>
+                    <p class="text-gray-600">Desde la publicación hasta la firma del contrato, nos encargamos de cada detalle.</p>
+                </div>
+                <div class="text-center p-8 rounded-xl bg-gray-50 card-hover">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-eye text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Transparencia total</h3>
+                    <p class="text-gray-600">Acceso completo a reportes, métricas y seguimiento en tiempo real de tu propiedad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planes y Precios -->
+    <section id="planes" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Planes que se adaptan a ti</h2>
+                <p class="text-xl text-gray-600">Elige el plan perfecto para tu propiedad</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Plan Bronce -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Plan Bronce</h3>
+                        <div class="text-4xl font-bold text-blue-600 mb-2">3% <span class="text-lg text-gray-500">+ IVA</span></div>
+                        <p class="text-gray-600">Ideal para propietarios independientes</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Publicación en 5 portales</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Gestión básica de inquilinos</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Reportes mensuales</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Soporte por email</li>
+                    </ul>
+                    <button class="w-full bg-gray-100 text-gray-800 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
+                        Elegir Plan
+                    </button>
+                </div>
+
+                <!-- Plan Plata -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover border-2 border-blue-500 relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">Más Popular</span>
+                    </div>
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Plan Plata</h3>
+                        <div class="text-4xl font-bold text-blue-600 mb-2">6% <span class="text-lg text-gray-500">+ IVA</span></div>
+                        <p class="text-gray-600">Perfecto para múltiples propiedades</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Publicación en 10+ portales</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Gestión completa de inquilinos</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Reportes semanales</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Soporte telefónico</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Visitas guiadas</li>
+                    </ul>
+                    <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                        Elegir Plan
+                    </button>
+                </div>
+
+                <!-- Plan Oro -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Plan Oro</h3>
+                        <div class="text-4xl font-bold text-blue-600 mb-2">8% <span class="text-lg text-gray-500">+ IVA</span></div>
+                        <p class="text-gray-600">Servicio premium completo</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Todo del Plan Plata</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Asesor personal dedicado</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Reportes en tiempo real</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Gestión de mantenciones</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Fotografía profesional</li>
+                    </ul>
+                    <button class="w-full bg-gray-100 text-gray-800 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
+                        Elegir Plan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seguro de Arriendo -->
+    <section class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                    Agrega protección extra con nuestro seguro de arriendo
+                </h2>
+                <p class="text-xl text-blue-100 mb-8">
+                    Protege tu inversión con cobertura completa contra daños, impagos y gastos legales
+                </p>
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white bg-opacity-10 rounded-lg p-6">
+                        <i class="fas fa-shield-alt text-3xl text-white mb-4"></i>
+                        <h3 class="text-lg font-semibold text-white mb-2">Cobertura Total</h3>
+                        <p class="text-blue-100">Hasta 12 meses de renta impaga</p>
+                    </div>
+                    <div class="bg-white bg-opacity-10 rounded-lg p-6">
+                        <i class="fas fa-gavel text-3xl text-white mb-4"></i>
+                        <h3 class="text-lg font-semibold text-white mb-2">Asesoría Legal</h3>
+                        <p class="text-blue-100">Gestión completa de procesos legales</p>
+                    </div>
+                    <div class="bg-white bg-opacity-10 rounded-lg p-6">
+                        <i class="fas fa-tools text-3xl text-white mb-4"></i>
+                        <h3 class="text-lg font-semibold text-white mb-2">Daños Cubiertos</h3>
+                        <p class="text-blue-100">Reparaciones y mantenciones</p>
+                    </div>
+                </div>
+                <button class="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-50 transition-colors">
+                    Conocer más sobre el seguro
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plataforma Online -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                        Gestiona todo desde nuestra plataforma online
+                    </h2>
+                    <p class="text-xl text-gray-600 mb-8">
+                        Dashboard intuitivo con todas las herramientas que necesitas para administrar tus propiedades de manera eficiente.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-600 mr-3"></i>
+                            <span class="text-gray-700">Seguimiento en tiempo real de inquilinos</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-600 mr-3"></i>
+                            <span class="text-gray-700">Reportes financieros detallados</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-600 mr-3"></i>
+                            <span class="text-gray-700">Gestión de documentos digitales</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-600 mr-3"></i>
+                            <span class="text-gray-700">Comunicación directa con inquilinos</span>
+                        </li>
+                    </ul>
+                    <button class="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors">
+                        Ver demo de la plataforma
+                    </button>
+                </div>
+                <div class="dashboard-mockup">
+                    <div class="bg-gray-100 h-8 rounded-t-lg mb-4"></div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <div class="bg-blue-100 h-6 w-32 rounded"></div>
+                            <div class="bg-green-100 h-6 w-20 rounded"></div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="bg-gray-200 h-20 rounded"></div>
+                            <div class="bg-gray-200 h-20 rounded"></div>
+                            <div class="bg-gray-200 h-20 rounded"></div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="bg-gray-200 h-4 rounded"></div>
+                            <div class="bg-gray-200 h-4 w-3/4 rounded"></div>
+                            <div class="bg-gray-200 h-4 w-1/2 rounded"></div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <div class="bg-blue-200 h-8 w-20 rounded"></div>
+                            <div class="bg-gray-200 h-8 w-20 rounded"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section id="testimonios" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Lo que dicen nuestros clientes</h2>
+                <p class="text-xl text-gray-600">Más de 1,000 propietarios confían en nosotros</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">María González</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Excelente servicio. Lograron arrendar mi departamento en menos de 2 semanas. El proceso fue completamente transparente y profesional."</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Carlos Mendoza</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"La plataforma online es increíble. Puedo ver todo en tiempo real y la gestión es súper fácil. Recomiendo 100% sus servicios."</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Ana Rodríguez</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Tengo 3 propiedades con ellos y estoy súper contenta. El equipo es muy profesional y siempre están disponibles para ayudar."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Contacto -->
+    <section id="contacto" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">¿Listo para comenzar?</h2>
+                <p class="text-xl text-gray-600">Contáctanos y te ayudaremos a gestionar tu propiedad</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-8">
+                <form class="space-y-6" onsubmit="handleSubmit(event)">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Nombre</label>
+                            <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Teléfono</label>
+                        <input type="tel" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Mensaje</label>
+                        <textarea rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Cuéntanos sobre tu propiedad..."></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors">
+                            Enviar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-building text-white text-lg"></i>
+                        </div>
+                        <span class="text-2xl font-bold">Anichpro</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">Administración y arriendo de propiedades de forma profesional y transparente.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Servicios</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Administración</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Arriendo</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Gestión Legal</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Seguros</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Empresa</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Nosotros</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Carreras</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Prensa</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Contacto</h3>
+                    <div class="space-y-3 text-gray-400">
+                        <div class="flex items-center">
+                            <i class="fas fa-phone mr-3"></i>
+                            <span>+56 2 2345 6789</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>contacto@anichpro.cl</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3"></i>
+                            <span>Santiago, Chile</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Anichpro. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Show success message
+            alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('bg-white', 'shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+
+        // Plan selection handlers
+        document.querySelectorAll('button:contains("Elegir Plan")').forEach(button => {
+            button.addEventListener('click', function() {
+                const planName = this.closest('.card-hover, .bg-white').querySelector('h3').textContent;
+                alert(`Has seleccionado el ${planName}. Te contactaremos para finalizar el proceso.`);
+            });
+        });
+
+        // Add click handlers for all buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hero button
+            document.querySelector('button:contains("Publica tu propiedad")').addEventListener('click', function() {
+                document.querySelector('#contacto').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // Insurance button
+            document.querySelector('button:contains("Conocer más sobre el seguro")').addEventListener('click', function() {
+                alert('Nuestro seguro de arriendo te protege con cobertura completa. ¡Contáctanos para más información!');
+            });
+
+            // Demo button
+            document.querySelector('button:contains("Ver demo de la plataforma")').addEventListener('click', function() {
+                alert('¡Excelente! Te enviaremos un enlace para acceder a la demo de nuestra plataforma.');
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96da09fee792e7dc',t:'MTc1NDkzOTQ4OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
